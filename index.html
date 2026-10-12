@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piyush Nirwan | AI-Driven Learner & CSE Student</title>
+    <meta name="description" content="Portfolio of Piyush Nirwan — 1st-year B.Tech CSE (Core) student, AI-driven learner, and prompt engineer. Exploring low-level systems, data learning, and modern AI workflows.">
+    <meta name="keywords" content="Piyush Nirwan, Portfolio, CSE Student, Prompt Engineering, AI, B.Tech, C Language, Python, Data Learning">
+    <meta name="author" content="Piyush Nirwan">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Piyush Nirwan | Portfolio">
+    <meta property="og:description" content="A tree that grows as you scroll — AI-driven learner, prompt engineer, and 1st-year B.Tech CSE student.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts: Editorial Serif + Modern Clean Sans + Monospace -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+    <!-- Custom Glowing Pink Cursor -->
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <!-- Background Falling Petals Canvas -->
+    <canvas id="petals-canvas" class="petals-canvas" aria-hidden="true"></canvas>
+
+    <!-- Ambient Dark & Pink Glow Atmosphere -->
+    <div class="ambient-glow glow-top" aria-hidden="true"></div>
+    <div class="ambient-glow glow-center" aria-hidden="true"></div>
+    <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+
+    <!-- ========================================================= -->
+    <!-- INTRO OVERLAY: DETAILED TREE SILHOUETTE & FALLING LEAF    -->
+    <!-- ========================================================= -->
+    <div id="intro-overlay" class="intro-overlay" role="dialog" aria-label="Introductory Animation">
+        <div class="intro-vignette"></div>
+        <div class="intro-content">
+            <!-- Detailed SVG Tree Silhouette with Pink Foliage -->
+            <div class="tree-silhouette-wrapper">
+                <svg class="intro-tree-svg" viewBox="0 0 800 700" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <!-- Tree Roots & Trunk -->
+                    <g class="tree-trunk-roots">
+                        <path d="M400 680 C400 650 375 620 380 570 C385 520 370 470 385 410 C395 365 375 315 390 260 C395 240 405 210 400 180" 
+                              stroke="#0d0812" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M400 680 C400 650 375 620 380 570 C385 520 370 470 385 410 C395 365 375 315 390 260 C395 240 405 210 400 180" 
+                              stroke="#050308" stroke-width="38" stroke-linecap="round"/>
+                        <!-- Gnarled Base Roots -->
+                        <path d="M380 570 C360 610 320 650 260 675" stroke="#050308" stroke-width="22" stroke-linecap="round"/>
+                        <path d="M400 580 C430 620 480 655 540 675" stroke="#050308" stroke-width="20" stroke-linecap="round"/>
+                        <path d="M360 630 C330 660 290 680 230 685" stroke="#08050a" stroke-width="14" stroke-linecap="round"/>
+                        <path d="M420 630 C450 660 500 680 560 685" stroke="#08050a" stroke-width="14" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- Main Organic Branches -->
+                    <g class="tree-branches">
+                        <!-- Left Main Branch System -->
+                        <path d="M385 410 C340 380 290 365 240 375 C190 385 150 410 100 420" stroke="#060308" stroke-width="24" stroke-linecap="round"/>
+                        <path d="M290 365 C260 320 220 290 170 280 C130 270 90 275 60 290" stroke="#08050b" stroke-width="16" stroke-linecap="round"/>
+                        <path d="M240 375 C230 420 210 460 170 490" stroke="#0a060e" stroke-width="12" stroke-linecap="round"/>
+                        <path d="M170 280 C150 240 120 215 80 210" stroke="#0a060e" stroke-width="10" stroke-linecap="round"/>
+
+                        <!-- Right Main Branch System -->
+                        <path d="M385 360 C440 340 495 330 550 350 C610 370 660 410 710 420" stroke="#060308" stroke-width="24" stroke-linecap="round"/>
+                        <path d="M495 330 C530 285 580 260 635 250 C680 240 720 250 750 270" stroke="#08050b" stroke-width="16" stroke-linecap="round"/>
+                        <path d="M550 350 C570 395 600 435 645 460" stroke="#0a060e" stroke-width="12" stroke-linecap="round"/>
+                        <path d="M635 250 C660 210 690 190 735 180" stroke="#0a060e" stroke-width="10" stroke-linecap="round"/>
+
+                        <!-- Upper Canopy Crown Branches -->
+                        <path d="M390 260 C360 210 320 175 270 150 C230 130 185 130 140 145" stroke="#08050b" stroke-width="18" stroke-linecap="round"/>
+                        <path d="M395 240 C430 195 470 160 520 140 C565 120 620 125 660 140" stroke="#08050b" stroke-width="18" stroke-linecap="round"/>
+                        <path d="M400 180 C390 130 370 85 330 50 C300 25 250 20 210 35" stroke="#0a060e" stroke-width="14" stroke-linecap="round"/>
+                        <path d="M400 180 C415 130 440 85 480 50 C520 20 570 25 610 40" stroke="#0a060e" stroke-width="14" stroke-linecap="round"/>
+                        <path d="M400 180 C400 110 400 60 400 25" stroke="#0c0712" stroke-width="10" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- Swaying Pink Blossom Foliage Clusters -->
+                    <g class="tree-foliage-clusters">
+                        <!-- Left Canopy Clusters -->
+                        <g class="sway-group sway-1">
+                            <circle cx="100" cy="420" r="32" fill="url(#pinkGlowGrad)" opacity="0.88"/>
+                            <circle cx="70" cy="400" r="22" fill="#ff4d8d" opacity="0.8"/>
+                            <circle cx="130" cy="435" r="24" fill="#ff7da7" opacity="0.75"/>
+                            <ellipse cx="60" cy="285" rx="36" ry="24" fill="url(#pinkGlowGrad)" opacity="0.9"/>
+                            <ellipse cx="80" cy="210" rx="30" ry="20" fill="#ff2a75" opacity="0.85"/>
+                            <circle cx="160" cy="270" r="25" fill="#ffa8c5" opacity="0.8"/>
+                        </g>
+
+                        <!-- Crown & Upper Clusters -->
+                        <g class="sway-group sway-2">
+                            <circle cx="400" cy="25" r="32" fill="url(#pinkGlowGrad)" opacity="0.95"/>
+                            <ellipse cx="330" cy="50" rx="38" ry="26" fill="#ff387d" opacity="0.88"/>
+                            <ellipse cx="480" cy="50" rx="38" ry="26" fill="#ff6b9d" opacity="0.88"/>
+                            <circle cx="210" cy="35" r="30" fill="#ffa0be" opacity="0.8"/>
+                            <circle cx="610" cy="40" r="30" fill="#ff4385" opacity="0.8"/>
+                            <ellipse cx="270" cy="140" rx="42" ry="28" fill="url(#pinkGlowGrad)" opacity="0.9"/>
+                            <ellipse cx="520" cy="135" rx="44" ry="30" fill="url(#pinkGlowGrad)" opacity="0.9"/>
+                        </g>
+
+                        <!-- Right Canopy Clusters -->
+                        <g class="sway-group sway-3">
+                            <circle cx="710" cy="420" r="34" fill="url(#pinkGlowGrad)" opacity="0.88"/>
+                            <circle cx="750" cy="400" r="22" fill="#ff2a75" opacity="0.8"/>
+                            <circle cx="675" cy="440" r="24" fill="#ff7fa9" opacity="0.75"/>
+                            <ellipse cx="750" cy="265" rx="38" ry="26" fill="url(#pinkGlowGrad)" opacity="0.9"/>
+                            <circle cx="735" cy="180" r="28" fill="#ffaec7" opacity="0.85"/>
+                            <ellipse cx="640" cy="245" rx="32" ry="22" fill="#ff488a" opacity="0.8"/>
+                        </g>
+
+                        <!-- Interior Accent Leaves / Buds -->
+                        <g class="interior-leaves">
+                            <circle cx="340" cy="320" r="14" fill="#ff85ae" opacity="0.85"/>
+                            <circle cx="450" cy="310" r="16" fill="#ff5292" opacity="0.85"/>
+                            <circle cx="370" cy="230" r="15" fill="#ffa8c5" opacity="0.9"/>
+                            <circle cx="430" cy="220" r="14" fill="#ff387d" opacity="0.9"/>
+                        </g>
+
+                        <!-- THE DETACHING LEAF (Highlighted falling element) -->
+                        <g id="detaching-leaf-origin" class="detaching-leaf-anchor">
+                            <!-- Visual placeholder until physics detachment starts -->
+                            <path id="intro-static-leaf" d="M380 220 C368 200 350 205 345 225 C345 245 372 250 380 220 Z" 
+                                  fill="#ff2a75" stroke="#ffd0e0" stroke-width="1.5" filter="url(#leafGlow)"/>
+                        </g>
+                    </g>
+
+                    <!-- SVG Gradients & Filters -->
+                    <defs>
+                        <radialGradient id="pinkGlowGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#ff9ebb" stop-opacity="1"/>
+                            <stop offset="50%" stop-color="#ff2a75" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#bb0849" stop-opacity="0"/>
+                        </radialGradient>
+                        <filter id="leafGlow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+                            <feMerge>
+                                <feMergeNode in="blur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Falling Detached Petal Simulation Node -->
+            <div id="falling-leaf-actor" class="falling-leaf-actor" aria-hidden="true">
+                <svg viewBox="0 0 40 40" width="36" height="36" fill="none">
+                    <path d="M20 2 C10 12 6 22 12 32 C18 40 32 36 34 22 C36 10 26 4 20 2 Z" 
+                          fill="url(#fallingLeafGrad)" stroke="#ffe4ee" stroke-width="1.2"/>
+                    <path d="M20 2 C20 15 22 26 26 34" stroke="#ffffff" stroke-width="0.8" opacity="0.7"/>
+                    <defs>
+                        <linearGradient id="fallingLeafGrad" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#ff9ec1"/>
+                            <stop offset="50%" stop-color="#ff2a75"/>
+                            <stop offset="100%" stop-color="#940538"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Title & Narrative Tagline in Intro -->
+            <div class="intro-titles">
+                <p class="intro-badge">DEEP LEARNER &bull; PROMPT CRAFT &bull; CSE CORE</p>
+                <h1 class="intro-heading">PIYUSH NIRWAN</h1>
+                <p class="intro-subtext">The Tree of Knowledge Awakens As You Journey</p>
+            </div>
+
+            <!-- Sleek Skip Intro Button -->
+            <button id="skipIntroBtn" class="skip-intro-btn magnetic-btn" type="button" aria-label="Skip Introduction">
+                <span>Skip Intro</span>
+                <span class="skip-key-hint">Esc</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- TREE SPINE SIDEBAR: GROWS AS YOU SCROLL                   -->
+    <!-- ========================================================= -->
+    <aside class="tree-spine" id="treeSpine" aria-label="Tree Growth Scroll Progress">
+        <div class="tree-spine-inner">
+            <!-- Growth Progress SVG Branch Vine -->
+            <svg class="tree-branch-svg" viewBox="0 0 80 1200" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background Faint Stem Guide -->
+                <path d="M40 0 C40 100 20 200 40 300 C60 400 35 500 45 600 C55 700 30 800 40 900 C50 1000 30 1100 40 1200" 
+                      class="branch-stem-bg" stroke="rgba(255, 42, 117, 0.12)" stroke-width="3" stroke-linecap="round"/>
+                
+                <!-- Dynamic Growing Branch Path -->
+                <path id="branch-growing-path" d="M40 0 C40 100 20 200 40 300 C60 400 35 500 45 600 C55 700 30 800 40 900 C50 1000 30 1100 40 1200" 
+                      class="branch-stem-growing" stroke="url(#spinePinkGrad)" stroke-width="3.5" stroke-linecap="round"/>
+                
+                <defs>
+                    <linearGradient id="spinePinkGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#ff75a6"/>
+                        <stop offset="50%" stop-color="#ff2a75"/>
+                        <stop offset="100%" stop-color="#ff9ebb"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+
+            <!-- 10 Interactive Blooming Blossom Nodes for Each Section -->
+            <nav class="tree-nodes-list" aria-label="Section Navigation">
+                <a href="#home" class="tree-node active" data-section="home" aria-label="Navigate to Home">
+                    <span class="node-leaf-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M12 2C8 7 5 12 7 17C9 22 17 21 19 16C21 11 16 7 12 2Z"/>
+                        </svg>
+                    </span>
+                    <span class="node-label">01. Home</span>
+                </a>
+
+                <a href="#about" class="tree-node" data-section="about" aria-label="Navigate to About">
+                    <span class="node-leaf-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M12 2C8 7 5 12 7 17C9 22 17 21 19 16C21 11 16 7 12 2Z"/>
+                        </svg>
+                    </span>
+                    <span class="node-label">02. About</span>
+                </a>
+
+                <a href="#education" class="tree-node" data-section="education" aria-label="Navigate to Education">
+                    <span class="node-leaf-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M12 2C8 7 5 12 7 17C9 22 17 21 19 16C21 11 16 7 12 2Z"/>
+                        </svg>
+                    </span>
+                    <span class="node-label">03. Education</span>
+                </a>
+
+                <a href="#skills" class="tree-node" data-section="skills" aria-label="Navigate to Skills">
+                    <span class="node-leaf-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M12 2C8 7 5 12 7 17C9 22 17 21 19 16C21 11 16 7 12 2Z"/>
+                        </svg>
+                    </span>
+                    <span class="node-label">04. Skills</span>
+                </a>
+
+                <a href="#goals" class="tree-node" data-section="goals" aria-label="Navigate to Goals">
+                    <span class="node-leaf-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M12 2C8 7 5 12 7 17C9 22 17 21 19 16C21 11 16 7 12 2Z"/>
+                        </svg>
+                    </span>
+                    <span class="node-label">05. Goals</span>
+                </a>
+
+                <a href="#learning-journey" class="tree-node" data-section="learning-journey" aria-label="Navigate to Learning Journey">
+                    <span class="node-leaf-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M12 2C8 7 5 12 7 17C9 22 17 21 19 16C21 11 16 7 12 2Z"/>
+                        </svg>
+                    </span>
+                    <span class="node-label">06. Journey</span>
+                </a>
+
+                <a href="#projects" class="tree-node" data-section="projects" aria-label="Navigate to Projects">
+                    <span class="node-leaf-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M12 2C8 7 5 12 7 17C9 22 17 21 19 16C21 11 16 7 12 2Z"/>
+                        </svg>
+                    </span>
+                    <span class="node-label">07. Projects</span>
+                </a>
+
+                <a href="#achievements" class="tree-node" data-section="achievements" aria-label="Navigate to Achievements">
+                    <span class="node-leaf-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M12 2C8 7 5 12 7 17C9 22 17 21 19 16C21 11 16 7 12 2Z"/>
+                        </svg>
+                    </span>
+                    <span class="node-label">08. Achievements</span>
+                </a>
+
+                <a href="#ask-ai" class="tree-node" data-section="ask-ai" aria-label="Navigate to AI Twin">
+                    <span class="node-leaf-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M12 2C8 7 5 12 7 17C9 22 17 21 19 16C21 11 16 7 12 2Z"/>
+                        </svg>
+                    </span>
+                    <span class="node-label">09. AI Twin</span>
+                </a>
+
+                <a href="#contact" class="tree-node" data-section="contact" aria-label="Navigate to Contact">
+                    <span class="node-leaf-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M12 2C8 7 5 12 7 17C9 22 17 21 19 16C21 11 16 7 12 2Z"/>
+                        </svg>
+                    </span>
+                    <span class="node-label">10. Contact</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- ========================================================= -->
+    <!-- MAIN SITE HEADER & MINIMAL NAVIGATION                     -->
+    <!-- ========================================================= -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="#home" class="brand-signature" aria-label="Piyush Nirwan Home">
+                <span class="brand-monogram">PN</span>
+                <span class="brand-text">PIYUSH NIRWAN</span>
+            </a>
+
+            <div class="header-status">
+                <span class="status-pulse-dot" aria-hidden="true"></span>
+                <span class="status-text">1st-Year B.Tech CSE (Core) &bull; Open for AI Internships</span>
+            </div>
+
+            <div class="header-actions">
+                <a href="#contact" class="header-cta-btn magnetic-btn">
+                    <span>Let's Connect</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================================= -->
+    <!-- MAIN CONTENT CONTAINER                                    -->
+    <!-- ========================================================= -->
+    <main class="portfolio-container" id="main-content">
+
+        <!-- ===================================================== -->
+        <!-- SECTION 1: HOME (HERO)                                -->
+        <!-- ===================================================== -->
+        <section id="home" class="portfolio-section hero-section" data-section-name="Home">
+            <div class="section-content-wrapper">
+                <div class="hero-grid">
+                    <div class="hero-text-col">
+                        <div class="hero-badge-row">
+                            <span class="tag-pill">B.Tech Computer Science Core</span>
+                            <span class="tag-pill highlight-pill">Jaipur, India</span>
+                        </div>
+
+                        <h1 class="hero-name-title reveal-text">PIYUSH NIRWAN</h1>
+
+                        <div class="hero-tagline-wrapper">
+                            <span class="hero-tagline-bracket">[</span>
+                            <p class="hero-tagline">AI-Driven Learner &bull; Prompt Engineer &bull; CSE Student</p>
+                            <span class="hero-tagline-bracket">]</span>
+                        </div>
+
+                        <p class="hero-bio-lead">
+                            Bridging low-level computational fundamentals in <strong>C</strong> with the frontier of 
+                            <strong>modern AI orchestration</strong>. I believe true leverage comes from understanding 
+                            deep algorithmic roots while accelerating building cycles through synthetic intelligence.
+                        </p>
+
+                        <div class="hero-actions-row">
+                            <a href="#projects" class="btn btn-primary magnetic-btn" id="heroProjectsBtn">
+                                <span>Explore Projects</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
+                            </a>
+                            <a href="#contact" class="btn btn-secondary magnetic-btn" id="heroContactBtn">
+                                <span>Initiate Contact</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </a>
+                            <a href="#ask-ai" class="btn btn-subtle magnetic-btn" id="heroAiBtn">
+                                <span class="sparkle-icon">✦</span>
+                                <span>Ask AI Twin</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual-col">
+                        <div class="hero-portrait-frame tilt-card">
+                            <div class="frame-ambient-glow"></div>
+                            <div class="photo-container">
+                                <img src="hhhh.png" alt="Piyush Nirwan Portrait" class="hero-avatar-img" onerror="this.src='Screenshot_2026-10-07-13-01-14-27_8b1cfbb769bd52fc36fa25a4fcc64305.jpg';">
+                            </div>
+                            <div class="portrait-corner corner-tl"></div>
+                            <div class="portrait-corner corner-tr"></div>
+                            <div class="portrait-corner corner-bl"></div>
+                            <div class="portrait-corner corner-br"></div>
+                            
+                            <div class="portrait-badge">
+                                <span class="badge-icon">🌿</span>
+                                <span class="badge-title">First-Year Momentum</span>
+                                <span class="badge-sub">High-Agency Mindset</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Scroll Indicator -->
+                <div class="hero-scroll-cue">
+                    <span class="scroll-label">Scroll to grow the tree</span>
+                    <div class="scroll-stem-animation">
+                        <span class="scroll-leaf"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- SECTION 2: ABOUT                                      -->
+        <!-- ===================================================== -->
+        <section id="about" class="portfolio-section" data-section-name="About">
+            <div class="section-content-wrapper">
+                <div class="section-header-block">
+                    <span class="section-index-tag">02 / ABOUT ME</span>
+                    <h2 class="section-title reveal-text">Deep Intuition. Relentless Focus.</h2>
+                    <p class="section-lead-statement">
+                        "I understand AI deeply, know how to get real work done with AI tools, learn fast, stay focused, 
+                        love aesthetic and classic design, and am genuinely excited about data learning and the future of tech."
+                    </p>
+                </div>
+
+                <div class="about-pillars-grid">
+                    <!-- Pillar 1 -->
+                    <div class="about-pillar-card tilt-card">
+                        <div class="pillar-number">01</div>
+                        <div class="pillar-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                <polyline points="2 17 12 22 22 17"></polyline>
+                                <polyline points="2 12 12 17 22 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-title">Deep AI Intuition</h3>
+                        <p class="pillar-desc">
+                            Moving far beyond casual chatbots. I treat LLMs and generative systems as precision reasoning engines — 
+                            structuring system contexts, chaining logical steps, and engineering outputs that reliably ship.
+                        </p>
+                        <div class="pillar-tag">Systemic Reasoning</div>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="about-pillar-card tilt-card">
+                        <div class="pillar-number">02</div>
+                        <div class="pillar-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-title">Hyper-Fast Learning</h3>
+                        <p class="pillar-desc">
+                            I thrive on steep learning curves. Whether understanding pointer arithmetic in C or dissecting 
+                            statistical data patterns, I break complex technical domains down to first principles with intense focus.
+                        </p>
+                        <div class="pillar-tag">High-Agency Grit</div>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="about-pillar-card tilt-card">
+                        <div class="pillar-number">03</div>
+                        <div class="pillar-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-title">Real Work with AI Tools</h3>
+                        <p class="pillar-desc">
+                            AI isn't a replacement for thinking — it's an accelerator. I use modern AI tooling (Cursor, Claude, 
+                            structured prompt harnesses) to speed up code iteration, debug systems, and amplify daily productivity.
+                        </p>
+                        <div class="pillar-tag">10x Execution</div>
+                    </div>
+
+                    <!-- Pillar 4 -->
+                    <div class="about-pillar-card tilt-card">
+                        <div class="pillar-number">04</div>
+                        <div class="pillar-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-title">Aesthetics & Data Future</h3>
+                        <p class="pillar-desc">
+                            I hold a deep love for editorial serif typography, dark space, and timeless craft. Simultaneously, 
+                            I am captivated by data learning: how raw numbers transform into predictive intelligence.
+                        </p>
+                        <div class="pillar-tag">Classic Design & Data</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- SECTION 3: EDUCATION TIMELINE                         -->
+        <!-- ===================================================== -->
+        <section id="education" class="portfolio-section" data-section-name="Education">
+            <div class="section-content-wrapper">
+                <div class="section-header-block">
+                    <span class="section-index-tag">03 / ACADEMIC FOUNDATIONS</span>
+                    <h2 class="section-title reveal-text">Education & Academic Timeline</h2>
+                    <p class="section-lead-statement">
+                        An authentic trajectory of compounding dedication: from early lessons to qualifying national-level 
+                        engineering examinations and stepping into core Computer Science.
+                    </p>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-stem-line" aria-hidden="true"></div>
+
+                    <!-- Timeline Item 1: B.Tech CSE Core -->
+                    <div class="timeline-item current-step">
+                        <div class="timeline-marker">
+                            <span class="timeline-pulse-node"></span>
+                            <span class="timeline-badge-text">NOW</span>
+                        </div>
+                        <div class="timeline-content-card tilt-card">
+                            <div class="card-meta-row">
+                                <span class="meta-tag active-tag">1st Year &bull; Ongoing (2024 - Present)</span>
+                                <span class="meta-loc">B.Tech Degree</span>
+                            </div>
+                            <h3 class="timeline-institution">B.Tech in Computer Science & Engineering (Core)</h3>
+                            <h4 class="timeline-spec">Foundations of Computation & Algorithmic Rigor</h4>
+                            <p class="timeline-body">
+                                Enrolled in core Computer Science. Diving deep into the foundational principles of computing: 
+                                procedural C programming, data representation, binary logic, discrete structures, and problem-solving.
+                            </p>
+                            <ul class="timeline-highlights">
+                                <li>Mastering low-level memory concepts and pointer mechanics.</li>
+                                <li>Building algorithmic intuition through weekly coding problem sets.</li>
+                                <li>Balancing academic excellence with self-directed frontier AI exploration.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2: JEE Mains Qualified -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="timeline-dot"></span>
+                            <span class="timeline-badge-text">2024</span>
+                        </div>
+                        <div class="timeline-content-card tilt-card highlight-card">
+                            <div class="card-meta-row">
+                                <span class="meta-tag qualified-tag">National Examination</span>
+                                <span class="meta-loc">NTA, India</span>
+                            </div>
+                            <h3 class="timeline-institution">JEE Mains Qualified</h3>
+                            <h4 class="timeline-spec">National Joint Entrance Examination</h4>
+                            <p class="timeline-body">
+                                Qualified in one of the most competitive technical entrance examinations in the world. 
+                                Tested rigorous problem-solving under strict time constraints across Advanced Mathematics, 
+                                Physics, and Chemistry.
+                            </p>
+                            <div class="score-pill-row">
+                                <span class="score-pill">Rigorous Analytical Aptitude</span>
+                                <span class="score-pill">National Competition</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3: Class 12th -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="timeline-dot"></span>
+                            <span class="timeline-badge-text">2024</span>
+                        </div>
+                        <div class="timeline-content-card tilt-card">
+                            <div class="card-meta-row">
+                                <span class="meta-tag">Senior Secondary (Class XII)</span>
+                                <span class="meta-score">Score: 70%</span>
+                            </div>
+                            <h3 class="timeline-institution">Higher Secondary Education (PCM)</h3>
+                            <h4 class="timeline-spec">Physics, Chemistry, Mathematics</h4>
+                            <p class="timeline-body">
+                                Strengthened mathematical rigor (Calculus, Coordinate Geometry, Vectors) while simultaneously 
+                                preparing for engineering competitive exams.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 4: Class 10th -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="timeline-dot"></span>
+                            <span class="timeline-badge-text">2022</span>
+                        </div>
+                        <div class="timeline-content-card tilt-card">
+                            <div class="card-meta-row">
+                                <span class="meta-tag">Secondary School (Class X)</span>
+                                <span class="meta-score">Score: 58%</span>
+                            </div>
+                            <h3 class="timeline-institution">Secondary School Examination</h3>
+                            <h4 class="timeline-spec">The Turning Point & The Spark</h4>
+                            <p class="timeline-body">
+                                An honest marker of where the journey began. This score served as a powerful turning point, 
+                                sparking a serious shift in discipline, ambition, and focus that carried me to JEE qualification 
+                                and core computer science.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- SECTION 4: SKILLS                                     -->
+        <!-- ===================================================== -->
+        <section id="skills" class="portfolio-section" data-section-name="Skills">
+            <div class="section-content-wrapper">
+                <div class="section-header-block">
+                    <span class="section-index-tag">04 / TECHNICAL CAPABILITIES</span>
+                    <h2 class="section-title reveal-text">Skills: Roots & Intelligence</h2>
+                    <p class="section-lead-statement">
+                        A dual-engine skillset: grounded core computer science languages paired with specialized modern AI capabilities.
+                    </p>
+                </div>
+
+                <!-- Group 1: Core Engineering Skills -->
+                <div class="skills-group">
+                    <div class="group-heading-row">
+                        <span class="group-icon">⚙️</span>
+                        <h3 class="group-title">Core Engineering & Languages</h3>
+                        <span class="group-subtitle">Fundamental computing building blocks</span>
+                    </div>
+
+                    <div class="skills-cards-grid">
+                        <!-- Skill: C -->
+                        <div class="skill-card tilt-card">
+                            <div class="skill-card-top">
+                                <div class="skill-badge-code">C</div>
+                                <span class="skill-level-pill">Foundational Focus</span>
+                            </div>
+                            <h4 class="skill-name">C Programming</h4>
+                            <p class="skill-desc">
+                                Low-level memory management, pointers, dynamic memory allocation (`malloc`, `free`), 
+                                structs, bitwise operations, recursion, and core data representations.
+                            </p>
+                            <div class="skill-chips">
+                                <span>Pointers</span>
+                                <span>Structs</span>
+                                <span>Memory Layout</span>
+                                <span>Algorithms</span>
+                            </div>
+                        </div>
+
+                        <!-- Skill: HTML & CSS -->
+                        <div class="skill-card tilt-card">
+                            <div class="skill-card-top">
+                                <div class="skill-badge-code">HTML & CSS</div>
+                                <span class="skill-level-pill">Semantic & Modern</span>
+                            </div>
+                            <h4 class="skill-name">HTML5 & Vanilla CSS3</h4>
+                            <p class="skill-desc">
+                                Clean semantic structure, CSS variables design systems, fluid responsive grids, flexbox, 
+                                keyframe animations, glassmorphism, and dark-mode aesthetics without relying on bloated bloatware.
+                            </p>
+                            <div class="skill-chips">
+                                <span>CSS Variables</span>
+                                <span>Responsive</span>
+                                <span>Keyframes</span>
+                                <span>Vanilla Flex/Grid</span>
+                            </div>
+                        </div>
+
+                        <!-- Skill: Python -->
+                        <div class="skill-card tilt-card">
+                            <div class="skill-card-top">
+                                <div class="skill-badge-code">PY</div>
+                                <span class="skill-level-pill">Basic & Growing</span>
+                            </div>
+                            <h4 class="skill-name">Python (Basics)</h4>
+                            <p class="skill-desc">
+                                Core syntax, functional scripting, data structures (lists, dicts, sets), file handling, 
+                                and writing clean logic for automation and data manipulation.
+                            </p>
+                            <div class="skill-chips">
+                                <span>Scripting</span>
+                                <span>File I/O</span>
+                                <span>Data Structures</span>
+                                <span>Automation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 2: AI Skills (Distinct Group) -->
+                <div class="skills-group ai-skills-group">
+                    <div class="group-heading-row">
+                        <span class="group-icon ai-glow-icon">✦</span>
+                        <h3 class="group-title">Frontier AI Skills</h3>
+                        <span class="group-subtitle">Getting real engineering leverage out of synthetic intelligence</span>
+                    </div>
+
+                    <div class="skills-cards-grid">
+                        <!-- AI Skill 1: Prompt Engineering -->
+                        <div class="skill-card ai-skill-card tilt-card">
+                            <div class="skill-card-top">
+                                <div class="skill-badge-code ai-badge">PROMPT</div>
+                                <span class="skill-level-pill ai-pill">Specialized</span>
+                            </div>
+                            <h4 class="skill-name">Prompt Engineering</h4>
+                            <p class="skill-desc">
+                                Precision system prompting, Chain-of-Thought (CoT) reasoning, few-shot conditioning, 
+                                context budgeting, constraint definition, and enforcing structured JSON outputs from LLMs.
+                            </p>
+                            <div class="skill-chips ai-chips">
+                                <span>Chain-of-Thought</span>
+                                <span>Meta-Prompts</span>
+                                <span>JSON Schemas</span>
+                                <span>Zero-Shot / Few-Shot</span>
+                            </div>
+                        </div>
+
+                        <!-- AI Skill 2: AI Tools Workflow -->
+                        <div class="skill-card ai-skill-card tilt-card">
+                            <div class="skill-card-top">
+                                <div class="skill-badge-code ai-badge">WORKFLOW</div>
+                                <span class="skill-level-pill ai-pill">High Leverage</span>
+                            </div>
+                            <h4 class="skill-name">AI Tools Workflow</h4>
+                            <p class="skill-desc">
+                                Integrating agentic workflows into development: code debugging, automated refactoring, 
+                                rapid documentation synthesis, and multi-model orchestration for accelerated project shipping.
+                            </p>
+                            <div class="skill-chips ai-chips">
+                                <span>Agentic Coding</span>
+                                <span>Workflow Acceleration</span>
+                                <span>Multi-Modal AI</span>
+                                <span>Rapid Prototyping</span>
+                            </div>
+                        </div>
+
+                        <!-- AI Skill 3: Data Learning (In Progress) -->
+                        <div class="skill-card ai-skill-card tilt-card">
+                            <div class="skill-card-top">
+                                <div class="skill-badge-code ai-badge">DATA</div>
+                                <span class="skill-level-pill in-progress-pill">In Progress</span>
+                            </div>
+                            <h4 class="skill-name">Data Learning</h4>
+                            <p class="skill-desc">
+                                Actively learning exploratory data analysis (EDA), numerical arrays, matrix representations, 
+                                and probabilistic foundations to bridge classical data science with modern neural systems.
+                            </p>
+                            <div class="skill-chips ai-chips">
+                                <span>Exploratory Analysis</span>
+                                <span>NumPy Basics</span>
+                                <span>Statistical Thinking</span>
+                                <span>Vector Concepts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- SECTION 5: GOALS                                      -->
+        <!-- ===================================================== -->
+        <section id="goals" class="portfolio-section" data-section-name="Goals">
+            <div class="section-content-wrapper">
+                <div class="section-header-block">
+                    <span class="section-index-tag">05 / FUTURE TRAJECTORY</span>
+                    <h2 class="section-title reveal-text">Strategic Goals & Targets</h2>
+                    <p class="section-lead-statement">
+                        Measurable targets driving daily deep work blocks and ongoing technical milestones.
+                    </p>
+                </div>
+
+                <div class="goals-grid">
+                    <!-- Goal 1 -->
+                    <div class="goal-card tilt-card">
+                        <div class="goal-header">
+                            <span class="goal-number">01</span>
+                            <span class="goal-status-badge">Target In Focus</span>
+                        </div>
+                        <div class="goal-icon-wrap">🎯</div>
+                        <h3 class="goal-title">Improve JEE Standing & Algorithmic Rank</h3>
+                        <p class="goal-desc">
+                            Continuing disciplined practice in advanced mathematics, discrete problem solving, and analytical depth. 
+                            Treating competitive problem-solving as mental gym workouts to sharpen algorithmic clarity.
+                        </p>
+                        <div class="goal-milestones">
+                            <div class="milestone-item">
+                                <span class="milestone-check">✓</span>
+                                <span>JEE Mains Qualified (Baseline Achieved)</span>
+                            </div>
+                            <div class="milestone-item">
+                                <span class="milestone-circle">○</span>
+                                <span>Advance competitive ranking & mathematical modeling</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Goal 2 -->
+                    <div class="goal-card tilt-card">
+                        <div class="goal-header">
+                            <span class="goal-number">02</span>
+                            <span class="goal-status-badge">Active Building</span>
+                        </div>
+                        <div class="goal-icon-wrap">⚡</div>
+                        <h3 class="goal-title">Build AI and Data-Driven Projects</h3>
+                        <p class="goal-desc">
+                            Transitioning theoretical curiosity into tangible software. Developing open-source tools, 
+                            prompt harnesses, and data analysis pipelines that solve genuine problems and showcase clean code.
+                        </p>
+                        <div class="goal-milestones">
+                            <div class="milestone-item">
+                                <span class="milestone-circle">○</span>
+                                <span>Prompt Orchestration & Validation Engine</span>
+                            </div>
+                            <div class="milestone-item">
+                                <span class="milestone-circle">○</span>
+                                <span>Interactive Data Explorer Prototype</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Goal 3 -->
+                    <div class="goal-card tilt-card">
+                        <div class="goal-header">
+                            <span class="goal-number">03</span>
+                            <span class="goal-status-badge">Primary Target</span>
+                        </div>
+                        <div class="goal-icon-wrap">🚀</div>
+                        <h3 class="goal-title">Secure AI / Data Engineering Internship</h3>
+                        <p class="goal-desc">
+                            Earning an engineering internship at an ambitious technology company where I can apply 
+                            high-velocity AI workflows, contribute to data processing, and learn from seasoned senior engineers.
+                        </p>
+                        <div class="goal-milestones">
+                            <div class="milestone-item">
+                                <span class="milestone-circle">○</span>
+                                <span>Build strong portfolio of verifiable code</span>
+                            </div>
+                            <div class="milestone-item">
+                                <span class="milestone-circle">○</span>
+                                <span>Collaborate on real-world production challenges</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- SECTION 6: LEARNING JOURNEY (TREE GROWTH METAPHOR)    -->
+        <!-- ===================================================== -->
+        <section id="learning-journey" class="portfolio-section" data-section-name="Learning Journey">
+            <div class="section-content-wrapper">
+                <div class="section-header-block">
+                    <span class="section-index-tag">06 / GROWTH METAPHOR</span>
+                    <h2 class="section-title reveal-text">Learning Journey: Tree Growth Stages</h2>
+                    <p class="section-lead-statement">
+                        How my engineering mind evolves — rooted in low-level discipline, branching into flexible scripting, 
+                        and blossoming into synthetic intelligence.
+                    </p>
+                </div>
+
+                <div class="tree-growth-stages-grid">
+                    <!-- Stage 1: Roots -->
+                    <div class="growth-stage-card tilt-card stage-roots">
+                        <div class="stage-botanical-tag">STAGE 1: DEEP ROOTS</div>
+                        <div class="stage-symbol">🌱</div>
+                        <h3 class="stage-name">C Foundations</h3>
+                        <h4 class="stage-sub">Hardware & Memory Intimacy</h4>
+                        <p class="stage-desc">
+                            The subterranean anchor. Learning how pointers touch memory addresses, how memory leaks occur, 
+                            and how the CPU executes code sequentially gives me an unwavering foundation that frameworks cannot hide.
+                        </p>
+                        <div class="stage-indicator">
+                            <span class="indicator-bar" style="width: 85%;"></span>
+                        </div>
+                        <span class="stage-status-label">Solidifying Deeply</span>
+                    </div>
+
+                    <!-- Stage 2: Trunk -->
+                    <div class="growth-stage-card tilt-card stage-trunk">
+                        <div class="stage-botanical-tag">STAGE 2: RISING TRUNK</div>
+                        <div class="stage-symbol">🪵</div>
+                        <h3 class="stage-name">Python & Scripting</h3>
+                        <h4 class="stage-sub">Syntax Versatility & Logic</h4>
+                        <p class="stage-desc">
+                            The central conduit. Transitioning from manual memory manipulation in C to the high-level fluidity 
+                            of Python for rapid automation, algorithmic scripting, and quick experimentation.
+                        </p>
+                        <div class="stage-indicator">
+                            <span class="indicator-bar" style="width: 55%;"></span>
+                        </div>
+                        <span class="stage-status-label">Rapid Expansion</span>
+                    </div>
+
+                    <!-- Stage 3: Branches -->
+                    <div class="growth-stage-card tilt-card stage-canopy">
+                        <div class="stage-botanical-tag">STAGE 3: EXPANDING BRANCHES</div>
+                        <div class="stage-symbol">🌿</div>
+                        <h3 class="stage-name">Data Learning</h3>
+                        <h4 class="stage-sub">Structures, Vectors & EDA</h4>
+                        <p class="stage-desc">
+                            Branching into the lifeblood of artificial intelligence: data structures, statistical analysis, 
+                            matrix mathematics, and learning how information is organized, transformed, and learned from.
+                        </p>
+                        <div class="stage-indicator">
+                            <span class="indicator-bar" style="width: 40%;"></span>
+                        </div>
+                        <span class="stage-status-label">In Active Learning</span>
+                    </div>
+
+                    <!-- Stage 4: Blossoms -->
+                    <div class="growth-stage-card tilt-card stage-blossoms">
+                        <div class="stage-botanical-tag">STAGE 4: BLOSSOMING CROWN</div>
+                        <div class="stage-symbol">🌸</div>
+                        <h3 class="stage-name">AI / ML & Agents</h3>
+                        <h4 class="stage-sub">Prompt Engineering & Automation</h4>
+                        <p class="stage-desc">
+                            The full bloom. Mastering prompt engineering, synthetic agent collaboration, and applied 
+                            machine learning workflows to produce high-impact real-world value with exponential leverage.
+                        </p>
+                        <div class="stage-indicator">
+                            <span class="indicator-bar" style="width: 70%;"></span>
+                        </div>
+                        <span class="stage-status-label">Active Frontier</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- SECTION 7: PROJECTS (HONEST BUILDING CARDS)           -->
+        <!-- ===================================================== -->
+        <section id="projects" class="portfolio-section" data-section-name="Projects">
+            <div class="section-content-wrapper">
+                <div class="section-header-block">
+                    <span class="section-index-tag">07 / BUILDS & PROTOTYPES</span>
+                    <h2 class="section-title reveal-text">Projects: Currently Building</h2>
+                    <p class="section-lead-statement">
+                        Honest, authentic building cards. As a first-year student, I prioritize transparent craftsmanship 
+                        over inflated claims. Here are the active prototypes on my workbench.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project Card 1 -->
+                    <div class="project-card tilt-card">
+                        <div class="project-card-header">
+                            <span class="project-num">PROJ_01</span>
+                            <span class="project-status-badge pulse-badge">Currently Building</span>
+                        </div>
+                        <div class="project-terminal-window">
+                            <div class="terminal-bar">
+                                <span class="term-dot dot-red"></span>
+                                <span class="term-dot dot-yellow"></span>
+                                <span class="term-dot dot-green"></span>
+                                <span class="term-title">prompt_eval_harness.py</span>
+                            </div>
+                            <pre class="terminal-code"><code>&gt; init_schema_validator()
+&gt; input: user_goal, model="claude/gpt"
+&gt; test_suite: CoT reasoning check [OK]
+&gt; JSON structure validation: passed</code></pre>
+                        </div>
+                        <h3 class="project-title">PromptCraft — Prompt Validation & Schema Harness</h3>
+                        <p class="project-desc">
+                            A lightweight Python framework designed to benchmark, evaluate, and enforce structured JSON 
+                            outputs from LLMs. Built to reduce prompt drift and automate prompt regressions.
+                        </p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Prompt Engineering</span>
+                            <span>JSON Schema</span>
+                            <span>AI Evaluation</span>
+                        </div>
+                        <div class="project-links-row">
+                            <span class="project-state-pill">Under Active Development</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="project-card tilt-card">
+                        <div class="project-card-header">
+                            <span class="project-num">PROJ_02</span>
+                            <span class="project-status-badge pulse-badge">Currently Building</span>
+                        </div>
+                        <div class="project-terminal-window">
+                            <div class="terminal-bar">
+                                <span class="term-dot dot-red"></span>
+                                <span class="term-dot dot-yellow"></span>
+                                <span class="term-dot dot-green"></span>
+                                <span class="term-title">data_tree_visualizer.js</span>
+                            </div>
+                            <pre class="terminal-code"><code>&gt; parse_tabular_stream()
+&gt; calculate_summary_statistics()
+&gt; render_distribution_canvas()
+&gt; Status: drafting EDA UI components</code></pre>
+                        </div>
+                        <h3 class="project-title">FloraData — Visual Data Explorer Sandbox</h3>
+                        <p class="project-desc">
+                            An interactive web tool to assist beginners in visualizing data distributions, correlations, 
+                            and missing values with immediate aesthetic charts without heavy notebook setups.
+                        </p>
+                        <div class="project-tags">
+                            <span>Data Learning</span>
+                            <span>JavaScript</span>
+                            <span>HTML5 Canvas</span>
+                            <span>EDA</span>
+                        </div>
+                        <div class="project-links-row">
+                            <span class="project-state-pill">Prototyping Stage</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="project-card tilt-card">
+                        <div class="project-card-header">
+                            <span class="project-num">PROJ_03</span>
+                            <span class="project-status-badge pulse-badge">Currently Building</span>
+                        </div>
+                        <div class="project-terminal-window">
+                            <div class="terminal-bar">
+                                <span class="term-dot dot-red"></span>
+                                <span class="term-dot dot-yellow"></span>
+                                <span class="term-dot dot-green"></span>
+                                <span class="term-title">core_dsa.c</span>
+                            </div>
+                            <pre class="terminal-code"><code>&gt; gcc -Wall -Wextra core_dsa.c
+&gt; test_binary_tree_traversals()
+&gt; memory_leak_check: 0 bytes lost
+&gt; Status: implementing custom allocators</code></pre>
+                        </div>
+                        <h3 class="project-title">C-Algocore — Foundations in Pure C</h3>
+                        <p class="project-desc">
+                            A curated repository of classic data structures (linked lists, binary trees, dynamic stacks) 
+                            implemented from scratch in C with rigorous memory leak checks via Valgrind.
+                        </p>
+                        <div class="project-tags">
+                            <span>C Language</span>
+                            <span>Data Structures</span>
+                            <span>Memory Management</span>
+                            <span>Systems</span>
+                        </div>
+                        <div class="project-links-row">
+                            <span class="project-state-pill">Implementing Core Modules</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- SECTION 8: ACHIEVEMENTS                               -->
+        <!-- ===================================================== -->
+        <section id="achievements" class="portfolio-section" data-section-name="Achievements">
+            <div class="section-content-wrapper">
+                <div class="section-header-block">
+                    <span class="section-index-tag">08 / RECOGNITION & HONORS</span>
+                    <h2 class="section-title reveal-text">Achievements & Milestones</h2>
+                    <p class="section-lead-statement">
+                        Proven credentials alongside deliberate empty slots to be earned throughout my 4-year engineering path.
+                    </p>
+                </div>
+
+                <div class="achievements-grid">
+                    <!-- Achievement 1: JEE Mains Qualified (Real) -->
+                    <div class="achievement-card tilt-card verified-achievement">
+                        <div class="achievement-badge-flag">VERIFIED</div>
+                        <div class="achievement-icon-wrap">🏆</div>
+                        <h3 class="achievement-title">JEE Mains Qualified (2024)</h3>
+                        <p class="achievement-org">National Testing Agency (NTA), India</p>
+                        <p class="achievement-desc">
+                            Earned qualification in one of the most intellectually demanding and competitive national engineering 
+                            examinations, showcasing intense mental resilience, high-speed calculation, and mathematical acumen.
+                        </p>
+                        <div class="achievement-tag-row">
+                            <span>National Benchmark</span>
+                            <span>Competitive Aptitude</span>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 2: Slot to fill later -->
+                    <div class="achievement-card tilt-card placeholder-achievement">
+                        <div class="achievement-badge-flag reserved-flag">RESERVED</div>
+                        <div class="achievement-icon-wrap empty-icon">🌱</div>
+                        <h3 class="achievement-title">Hackathon & Collegiate Coding Milestone</h3>
+                        <p class="achievement-org">Upcoming Collegiate Challenge</p>
+                        <p class="achievement-desc">
+                            Slot reserved for upcoming national hackathons and collegiate coding contests currently being targeted 
+                            during my 1st and 2nd years.
+                        </p>
+                        <div class="achievement-tag-row">
+                            <span>Target: 2024–2025</span>
+                            <span>In Preparation</span>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 3: Slot to fill later -->
+                    <div class="achievement-card tilt-card placeholder-achievement">
+                        <div class="achievement-badge-flag reserved-flag">RESERVED</div>
+                        <div class="achievement-icon-wrap empty-icon">🌿</div>
+                        <h3 class="achievement-title">Open-Source AI & Prompt Tooling Release</h3>
+                        <p class="achievement-org">Open Source Community</p>
+                        <p class="achievement-desc">
+                            Slot reserved for public GitHub repository milestones, star count benchmarks, and community 
+                            contributions in the generative AI and data tooling ecosystem.
+                        </p>
+                        <div class="achievement-tag-row">
+                            <span>Target: 2025</span>
+                            <span>In Preparation</span>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 4: Slot to fill later -->
+                    <div class="achievement-card tilt-card placeholder-achievement">
+                        <div class="achievement-badge-flag reserved-flag">RESERVED</div>
+                        <div class="achievement-icon-wrap empty-icon">🌸</div>
+                        <h3 class="achievement-title">Industry Research / Engineering Internship</h3>
+                        <p class="achievement-org">Forward-Thinking Tech Enterprise</p>
+                        <p class="achievement-desc">
+                            Slot reserved for my first official technology internship, solving production challenges in 
+                            artificial intelligence, data engineering, or low-level systems.
+                        </p>
+                        <div class="achievement-tag-row">
+                            <span>Target: Summer 2025</span>
+                            <span>Actively Seeking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- SECTION 9: ASK MY AI (TWIN SECTION)                   -->
+        <!-- ===================================================== -->
+        <section id="ask-ai" class="portfolio-section" data-section-name="Ask My AI">
+            <div class="section-content-wrapper">
+                <div class="ask-ai-showcase tilt-card">
+                    <div class="ask-ai-ambient" aria-hidden="true"></div>
+                    
+                    <div class="ask-ai-header">
+                        <div class="ai-twin-avatar-box">
+                            <span class="ai-twin-glow"></span>
+                            <span class="ai-avatar-letter">AI</span>
+                        </div>
+                        <div class="ai-twin-status-pill">
+                            <span class="pulse-sparkle">✦</span>
+                            <span>SYNTHETIC TWIN &bull; READY</span>
+                        </div>
+                    </div>
+
+                    <h2 class="ask-ai-heading reveal-text">Talk to my AI twin</h2>
+
+                    <p class="ask-ai-subtext">
+                        Want to explore how I approach prompt engineering, inquire about my coursework and project timelines, 
+                        or discuss potential internship opportunities? Launch my digital twin for instant conversational answers.
+                    </p>
+
+                    <div class="ask-ai-actions">
+                        <button id="launchAiTwinBtn" class="btn btn-primary magnetic-btn launch-ai-btn" type="button">
+                            <span class="sparkle-icon">✦</span>
+                            <span>Launch AI Twin</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Required Empty Chatbot Container -->
+                    <div id="chatbot-container" class="chatbot-container" aria-live="polite">
+                        <!-- Botpress embed scripts will hook into this container -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- SECTION 10: CONTACT                                   -->
+        <!-- ===================================================== -->
+        <section id="contact" class="portfolio-section" data-section-name="Contact">
+            <div class="section-content-wrapper">
+                <div class="section-header-block">
+                    <span class="section-index-tag">10 / INITIATE CONTACT</span>
+                    <h2 class="section-title reveal-text">Let's Connect & Build</h2>
+                    <p class="section-lead-statement">
+                        Whether you are a recruiter, startup founder, or fellow engineer interested in AI and data learning, 
+                        I would love to hear from you.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Direct Email Card -->
+                    <div class="contact-card tilt-card email-card">
+                        <div class="contact-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                        </div>
+                        <h3 class="contact-card-title">Direct Inquiries</h3>
+                        <p class="contact-card-desc">The fastest way to reach me for opportunities, internships, or questions.</p>
+                        
+                        <div class="email-copy-box">
+                            <code class="email-address-text" id="emailText">your.email@example.com</code>
+                            <button id="copyEmailBtn" class="copy-btn magnetic-btn" type="button" aria-label="Copy Email Address">
+                                <span class="copy-icon">📋</span>
+                                <span class="copy-label">Copy</span>
+                            </button>
+                        </div>
+
+                        <div class="contact-button-row">
+                            <a href="mailto:your.email@example.com" class="btn btn-secondary magnetic-btn" id="openMailClientBtn">
+                                <span>Send Direct Email</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Social Presence Card -->
+                    <div class="contact-card tilt-card socials-card">
+                        <div class="contact-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <circle cx="18" cy="5" r="3"></circle>
+                                <circle cx="6" cy="12" r="3"></circle>
+                                <circle cx="18" cy="19" r="3"></circle>
+                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                            </svg>
+                        </div>
+                        <h3 class="contact-card-title">Digital Presence</h3>
+                        <p class="contact-card-desc">Follow my ongoing code commits, write-ups, and professional updates.</p>
+
+                        <div class="social-links-grid">
+                            <!-- GitHub Placeholder -->
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-item-link magnetic-btn" aria-label="GitHub Profile">
+                                <div class="social-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                                    </svg>
+                                </div>
+                                <div class="social-info">
+                                    <span class="social-name">GitHub</span>
+                                    <span class="social-handle">@piyushnirwan</span>
+                                </div>
+                                <span class="social-arrow">↗</span>
+                            </a>
+
+                            <!-- LinkedIn Placeholder -->
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-item-link magnetic-btn" aria-label="LinkedIn Profile">
+                                <div class="social-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                    </svg>
+                                </div>
+                                <div class="social-info">
+                                    <span class="social-name">LinkedIn</span>
+                                    <span class="social-handle">Piyush Nirwan</span>
+                                </div>
+                                <span class="social-arrow">↗</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- SITE FOOTER                                               -->
+    <!-- ========================================================= -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <span class="footer-brand">Piyush Nirwan</span>
+                <span class="footer-copy">&copy; 2024 &bull; Crafted with pure HTML, CSS, JavaScript.</span>
+            </div>
+            <div class="footer-center">
+                <span class="botanical-tag">Black & Pink Flora Architecture</span>
+            </div>
+            <div class="footer-right">
+                <a href="#home" class="back-to-top-btn magnetic-btn" aria-label="Back to top">
+                    <span>Back to Top</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="18 15 12 9 6 15"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PASTE BOTPRESS EMBED SCRIPT HERE -->
+
+    <!-- Main JavaScript Application -->
+    <script src="script.js"></script>
+</body>
+</html>
